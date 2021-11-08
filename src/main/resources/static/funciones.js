@@ -710,7 +710,9 @@ function consultarReservas() {
                 $("#idDivConsultaReservas").append("<td>"+json[i].idReservation+"</td>");
                 $("#idDivConsultaReservas").append("<td>"+json[i].startDate+"</td>");
                 $("#idDivConsultaReservas").append("<td>"+json[i].devolutionDate+"</td>");                
-                $("#idDivConsultaReservas").append("<td>"+json[i].status+"</td>"); 
+                $("#idDivConsultaReservas").append("<td>"+json[i].status+"</td>");
+                $("#idDivConsultaReservas").append("<td>"+json[i].IdCliente+"</td>");
+                $("#idDivConsultaReservas").append("<td>"+json[i].IdDisfraz+"</td>");                 
                 $("#idDivConsultaReservas").append('<td><button onclick="cargarReservas(' + json[i].idReservation + ')">Cargar</button></td>');
                 $("#idDivConsultaReservas").append("</tr>");
             }
@@ -729,6 +731,8 @@ function vaciarTablaR(){
         startDate:  $("#startDate").val(""), 
         devolutionDate:  $("#devolutionDate").val(""), 
         status: $("#estatus").val(""), 
+        IdCliente: $("#IdCliente").val(""),
+        IdDisfraz: $("#IdDisfraz").val(""),
 // status = "created";
     }
     datosEnvio = JSON.stringify(reserva);
@@ -763,6 +767,8 @@ function crearReservas() {
         devolutionDate: $("#devolutionDate").val(), 
      //   status = "Created", //$("#status").val("created"),
         status: $("#estatus").val(), 
+        IdCliente: $("#IdCliente").val(), 
+        IdDisfraz: $("#IdCliente").val(),         
     };
         datosEnvio = JSON.stringify(reserva);    
     $.ajax({
@@ -795,6 +801,8 @@ function actualizarReservas(idItem) {
         startDate:  $("#startDate").val(), 
         devolutionDate:  $("#devolutionDate").val(), 
         estatus: $("#estatus").val(""), 
+        IdCliente: $("#IdCliente").val(), 
+        IdDisfraz: $("#IdCliente").val(), 
     }
     console.log(reserva);
     datosEnvio = JSON.stringify(reserva);
@@ -864,3 +872,4 @@ function autoInicioCategoria(){
     
     })
 }
+
