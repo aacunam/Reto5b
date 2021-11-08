@@ -5,13 +5,15 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.HttpStatus;
 
 import tienda_disfraces.reto3.modelo.Categoria;
-import tienda_disfraces.reto3.servicios.CategoriaServicios;
+import tienda_disfraces.reto3.service.CategoriaServicios;
+
+import org.springframework.http.HttpStatus;
 
 /**
- * @autor Gladys Leticia Ramirez Torres
+ *
+ * @author Armando acuña
  */
 @RestController
 @RequestMapping("/api/Category")

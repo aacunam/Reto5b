@@ -5,9 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author ARMANDO ACUÑA
+ */
 @Entity
 @Table(name = "reservation")
-public class Reserva implements Serializable {
+public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,12 +20,12 @@ public class Reserva implements Serializable {
     private String status = "created";
 
     @ManyToOne
-    @JoinColumn(name = "costumeid")
+    @JoinColumn(name = "costumeid")    //@JoinColumn(name="id")
     @JsonIgnoreProperties("reservations")
     private Costume costume;
 
     @ManyToOne
-    @JoinColumn(name = "clientId")
+    @JoinColumn(name = "clientId")  //    
     @JsonIgnoreProperties({ "reservations", "messages" })
     private Cliente client;
 

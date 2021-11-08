@@ -1,4 +1,4 @@
-package tienda_disfraces.reto3.servicios;
+package tienda_disfraces.reto3.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,8 +11,9 @@ import tienda_disfraces.reto3.repositorio.ClienteRepositorio;
 
 /**
  *
- * @author Andres Mejia
+ * @author Armando acuña
  */
+ 
 
 @Service
 public class ClienteServicios {
@@ -42,19 +43,19 @@ public class ClienteServicios {
 
     public Cliente update(Cliente client) {
         if (client.getIdClient() != null) {
-            Optional<Cliente> e = metodosCrud.getCliente(client.getIdClient());
+            Optional<Cliente> eeee = metodosCrud.getCliente(client.getIdClient());
             // if (!e.isEmpty()) {
             if (client.getName() != null) {
-                e.get().setName(client.getName());
+                eeee.get().setName(client.getName());
             }
             if (client.getAge() != null) {
-                e.get().setAge(client.getAge());
+                eeee.get().setAge(client.getAge());
             }
             if (client.getPassword() != null) {
-                e.get().setPassword(client.getPassword());
+                eeee.get().setPassword(client.getPassword());
             }
-            metodosCrud.save(e.get());
-            return e.get();
+            metodosCrud.save(eeee.get());
+            return eeee.get();
             /*
              * } else { return client; }
              */

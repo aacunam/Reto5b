@@ -1,4 +1,4 @@
-package tienda_disfraces.reto3.servicios;
+package tienda_disfraces.reto3.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +10,8 @@ import tienda_disfraces.reto3.modelo.Categoria;
 import tienda_disfraces.reto3.repositorio.CategoriaRepositorio;
 
 /**
- * @autor Gladys Leticia Ramirez Torres
+ *
+ * @author Armando acuña
  */
 @Service
 public class CategoriaServicios {
@@ -58,7 +59,8 @@ public class CategoriaServicios {
             if (categoria.getDescription() != null) {
                 g.get().setDescription(categoria.getDescription());
             }
-            return categoriaRepositorio.save(g.get());
+            categoriaRepositorio.save(g.get());
+            return g.get();
             // }
         }
         return categoria;

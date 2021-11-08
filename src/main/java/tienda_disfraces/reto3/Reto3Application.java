@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-
+/**
+ * @author ARMANDO ACUÑA
+ */
 @SpringBootApplication
 @EnableConfigurationProperties
 @EntityScan(basePackages = {"tienda_disfraces.reto3.modelo"})

@@ -1,4 +1,4 @@
-package tienda_disfraces.reto3.servicios;
+package tienda_disfraces.reto3.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import tienda_disfraces.reto3.modelo.Costume;
 import tienda_disfraces.reto3.repositorio.DisfrazRepositorio;
 
+/**
+ *
+ * @author Armando acuña
+ */
 @Service
 public class DisfrazServicios {
 
@@ -52,15 +56,15 @@ public class DisfrazServicios {
             if (disfraz.getDescription() != null) {
                 e.get().setDescription(disfraz.getDescription());
             }
-
             disfrazRepositorio.save(e.get());
             return e.get();
             /*
              * }else{ return disfraz; }
              */
-        } else {
-            return disfraz;
-        }
+        } /*else {
+            
+        }*/
+        return disfraz;
     }
 
     public boolean deleteDisfraz(int disfrazId) {

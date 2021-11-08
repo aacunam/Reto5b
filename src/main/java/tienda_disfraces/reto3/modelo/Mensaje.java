@@ -7,8 +7,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * @autor Gladys Leticia Ramirez Torres
- *
+ * @author ARMANDO ACUÑA
  */
 @Entity
 @Table(name = "message")
@@ -16,6 +15,7 @@ public class Mensaje implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
+    @Column (length = 250)
     private String messageText;
 
     @ManyToOne

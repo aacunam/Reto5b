@@ -6,32 +6,32 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import tienda_disfraces.reto3.Crud.ClienteCrudRepositorio;
 import tienda_disfraces.reto3.modelo.Cliente;
-import tienda_disfraces.reto3.repositorio.Crud.ClienteCrudRepositorio;
 
 /**
  *
- * @author Andres Mejia
+ * @author Armando acuña
  */
 @Repository
 public class ClienteRepositorio {
     @Autowired
-    private ClienteCrudRepositorio crud1;
+    private ClienteCrudRepositorio clienteCrudRepositorio;
 
     public List<Cliente> getAll() {
-        return (List<Cliente>) crud1.findAll();
+        return (List<Cliente>) clienteCrudRepositorio.findAll();
     }
 
     public Optional<Cliente> getCliente(int id) {
-        return crud1.findById(id);
+        return clienteCrudRepositorio.findById(id);
     }
 
     public Cliente save(Cliente cliente) {
-        return crud1.save(cliente);
+        return clienteCrudRepositorio.save(cliente);
     }
 
     public void delete(Cliente cliente) {
-        crud1.delete(cliente);
+  //      crud1.delete(cliente);
+        clienteCrudRepositorio.delete(cliente);
     }
-
 }

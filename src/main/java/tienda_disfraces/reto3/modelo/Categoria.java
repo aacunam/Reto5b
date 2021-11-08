@@ -2,24 +2,25 @@ package tienda_disfraces.reto3.modelo;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * @autor Gladys Leticia Ramirez Torres
+ * @author ARMANDO ACUÑA
  */
 @Entity
-@Table(name="category")
+@Table(name = "category")
 public class Categoria implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (length = 5)
     private Integer id;
+    @Column (length = 45)
     private String name;
+    @Column (length = 250)
     private String description;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
+    @OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "category")
     @JsonIgnoreProperties("category")
     private List<Costume> costumes;
 

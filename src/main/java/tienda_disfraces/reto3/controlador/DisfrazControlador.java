@@ -18,8 +18,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import tienda_disfraces.reto3.modelo.Costume;
-import tienda_disfraces.reto3.servicios.DisfrazServicios;
+import tienda_disfraces.reto3.service.DisfrazServicios;
 
+/**
+ *
+ * @author Armando acuña
+ */
 @RestController
 @RequestMapping("/api/Costume")
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,

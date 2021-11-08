@@ -1,11 +1,11 @@
-package tienda_disfraces.reto3.repositorio.Crud;
-
-import tienda_disfraces.reto3.modelo.Mensaje;
+package tienda_disfraces.reto3.Crud;
 
 import org.springframework.data.repository.CrudRepository;
 
+import tienda_disfraces.reto3.modelo.Mensaje;
+
 /**
- * @autor Gladys Leticia Ramirez Torres
+ * @author ARMANDO ACUÑA
  */
 public interface MensajeCrudRepositorio extends CrudRepository <Mensaje,Integer>{
     

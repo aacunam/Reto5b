@@ -3,14 +3,25 @@
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="funciones.js"></script>
-  <link rel="stylesheet" href="estilos.css"/>
+  <script src="funciones.js"></script> 
+<!--  <link rel="stylesheet" href="estilos.css"/>  -->
+  <link rel="stylesheet" href="estilos.css"/>  
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tienda de Disfraces</title>
 </head>
 <body>
+  <div class="container unauthenticated">
+    <br>
+    <h1>Regístrate en GitHub poder acceder al contenido</h1> <br><br><br>
+    <h3 style="color:blue;  text-align: center;"> </h3> <a  href="/oauth2/authorization/github" style="font-size: 2.5em"> Ingrese aqui</a>
+  </div>
+
+
+  <div class="container authenticated" style="display:none">
+
+
 <!-- menu profile quick info -->
 <div class="profile clearfix">
   <div class="profile_pic">
@@ -35,9 +46,8 @@
     <button onclick="consultarDisfraces()">Consultar Disfraces</button>
     <br /><br />
   <table>
-     <tr>  
-      <td></td>
-      <td><input type="number" id="idDisfraz" visibility: hidden placeholder="Codigo"></input></td>
+     <tr>  <td></td>
+       <td><input type="number" id="idDisfraz" visibility: hidden placeholder="Codigo"></input></td>
     </tr>  
     <tr>
       <td>Nombre</td>
@@ -55,10 +65,17 @@
       <td>Descripción</td>
       <td><input type="text" id="Description" placeholder="Descripción"></input></td>
     </tr>
-    <tr>
+    <!------------------>
+    <h3>Categorías</h3>
+    <select id="select-category"></select>
+    <script type="text/javascript">
+        window.onload = autoInicioCategoria();
+    </script>
+    <!------------------>
+    <!----------------  <tr>
       <td>Categoría</td>
       <td><input type="number" id="Category" placeholder="Categoría"></input></td>
-    </tr>
+    </tr>  -->
   </table>
   <br />
   <button onclick="crearDisfraz()">Ingresar disfraz</button>
@@ -67,6 +84,7 @@
   <button onclick="$('#divTablaDisfraz').hide()"> Cancelar</button>
   <br /><br />
   <div id="idDivConsultaDisfraz"></div>
+
   </div>  
   <div id=divRegClientes visibility: hidden>
     <br />
@@ -74,8 +92,8 @@
     <br /><br />
     <table>
       <tr>
-        <td>Id Cliente </td>
-        <td><input type="number" id="idCliente" placeholder="Id"></input></td>
+        <td>Id Cliente </td>   
+      <td> </td><td><input type="number" id="idCliente"  visibility: hidden placeholder=""></input></td>
       </tr>
       <tr>
         <td>Nombre</td>
@@ -86,14 +104,18 @@
         <td><input type="email" id="Email" placeholder="Email"></input></td>
       </tr>
       <tr>
+        <td>Password</td>
+        <td><input type="text" id="Password" placeholder="Password"></input></td>
+      </tr>
+      <tr>
         <td>Edad</td>
         <td><input type="number" id="Edad" placeholder="Edad"></input></td>
       </tr>
     </table>
     <br />
-    <button onclick="crearCliente()">Crear Cliente</button>
-    <button onclick="actualizarCliente()">Actualizar</button>
-    <button onclick="eliminarCliente()">Eliminar</button>
+    <button onclick="crearClientes()">Crear Cliente</button>
+    <button onclick="actualizarClientes()">Actualizar</button>
+    <button onclick="eliminarClientes()">Eliminar</button>
     <button onclick="$('#divRegClientes').hide()"> Cancelar</button>
     <br /><br />
     <div id="idDivConsultaClientes"></div>
@@ -112,9 +134,18 @@
       <td>Mensaje</td>
       <td><input type="text" id="MessageText" placeholder="Mensaje"></input></td>
     </tr>
+    <tr>
+      <td>Disfraz</td>
+      <td><input type="text" id="DisfrazM" placeholder="Disfraz"></input></td>
+    </tr>  
+    <tr>
+      <td>Cliente</td>
+      <td><input type="text" id="ClienteM" placeholder="Cliente"></input></td>
+    </tr>    
+
   </table>
   <br />
-  <button onclick="crearMensaje()">Enviar Mensaje</button>
+  <button onclick="crearMensaje()">Crear Mensaje</button>
   <button onclick="actualizarMensaje()">Actualizar</button>
   <button onclick="eliminarMensaje()">Eliminar</button>
     <button onclick="$('#divRegMensajes').hide()"> Cancelar</button>
@@ -128,7 +159,9 @@
     <button onclick="consultarCategoria()">Consultar Categoría</button>
     <br /><br />
   <table>
-    <tr>    <td> </td> <td><input type="number" id="idCategoria" visibility: hidden placeholder=""></input></td> 
+    <tr>    
+      <td> </td>
+      <td><input type="number" id="idCategoria"  visibility: hidden placeholder=""></input></td> 
     </tr>  
     <tr>
       <td>Nombre</td>
@@ -157,20 +190,28 @@
     <br /><br />
   <table>
     <tr>
-      <td>Id </td>
-      <td><input type="number" id="idReserva" placeholder="Id"></input></td>
+      <td> </td>
+      <td><input type="number" id="idReservation" visibility: hidden placeholder="Id"></input></td>
     </tr>
     <tr>
       <td>Fecha Inicio</td>
-      <td><input type="date" id="startDate" placeholder="Fecha Inicio"></input></td>
+      <td><input type="text" id="startDate" placeholder="aaaa-mm-dd"></input></td>
     </tr>
     <tr>
       <td>Fecha Fin</td>
-      <td><input type="date" id="devolutionDate" placeholder="Fecha Fin"></input></td>
+      <td><input type="text" id="devolutionDate" placeholder="aaaa-mm-dd"></input></td>
     </tr>
     <tr>
       <td>Estado</td>
-      <td><input type="text" id="status" placeholder="Estado"></input></td>
+      <td><input type="text" id="estatus" placeholder="Estado"></input></td>
+    </tr>
+    <tr>
+      <td>ID Cliente</td>
+      <td><input type="number" id="IdCliente" placeholder="IdCliente"></input></td>
+    </tr>
+    <tr>
+      <td>ID Disfraz</td>
+      <td><input type="number" id="IdDisfraz" placeholder="IdDisfraz"></input></td>
     </tr>
   </table>
   <br />
@@ -192,5 +233,14 @@
     </table>
 
 </div>
+</div>
 </body>
+<script type="text/javascript">
+  $.get("/user", function (data) {
+    $("#user").html(data.name);
+    $(".unauthenticated").hide()
+    $(".authenticated").show()
+  });
+</script>
+
 </html>

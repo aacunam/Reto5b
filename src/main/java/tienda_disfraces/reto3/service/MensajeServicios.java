@@ -1,4 +1,4 @@
-package tienda_disfraces.reto3.servicios;
+package tienda_disfraces.reto3.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +10,8 @@ import tienda_disfraces.reto3.modelo.Mensaje;
 import tienda_disfraces.reto3.repositorio.MensajeRepositorio;
 
 /**
- * @autor Gladys Leticia Ramirez Torres
+ *
+ * @author Armando acuña
  */
 @Service
 public class MensajeServicios {
@@ -45,16 +46,16 @@ public class MensajeServicios {
     }
 
     /**
-     * Actualizar una Mensaje
+     * Actualizar un Mensaje
      */
     public Mensaje update(Mensaje mensaje){
         if(mensaje.getIdMessage()!=null){
-            Optional<Mensaje>g=mensajeRepositorio.getMensaje(mensaje.getIdMessage());
+            Optional<Mensaje>gg=mensajeRepositorio.getMensaje(mensaje.getIdMessage());
   //          if(!g.isEmpty()){
                 if(mensaje.getMessageText()!=null){
-                    g.get().setMessageText(mensaje.getMessageText());
+                    gg.get().setMessageText(mensaje.getMessageText());
                 }
-                return mensajeRepositorio.save(g.get());
+                return mensajeRepositorio.save(gg.get());
  //           }
         }
         return mensaje;
